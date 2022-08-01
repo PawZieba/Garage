@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Garage.Data;
 using Garage.Models;
 
-namespace Garage.Pages.Customers
+namespace Garage.Pages
 {
     public class IndexModel : PageModel
     {
@@ -19,13 +19,12 @@ namespace Garage.Pages.Customers
             _context = context;
         }
 
-        public IList<Models.Customer> Customers { get;set; }
+        public IList<Car> Car { get;set; }
 
         public async Task OnGetAsync()
         {
-            Customers = await _context.Customers
-                .Include(customer => customer.Cars)
-                .ToListAsync();
+            Car = await _context.Car
+                .Include(c => c.Customer).ToListAsync();
         }
     }
 }

@@ -1,0 +1,54 @@
+﻿@page
+@model Garage.Pages.IndexModel
+
+@{
+    ViewData["Title"] = "Samochody";
+}
+
+<div class="header">
+    <h1>@ViewData["Title"]</h1>
+
+    <a class="btn btn-primary" asp-page="CreateCar">@Models.Dictionary.addCar</a>
+</div>
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Models.Dictionary.producer
+            </th>
+            <th>
+                @Models.Dictionary.model
+            </th>
+            <th>
+                @Models.Dictionary.vin
+            </th>
+            <th>
+                @Models.Dictionary.licencePlate
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Car) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Producer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VIN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LicencePlate)
+            </td>
+            <td class="text-center action-column">
+                <a class="btn btn-primary" asp-page="./EditCar" asp-route-id="@item.ID">@Models.Dictionary.edit</a>
+                @*<a asp-page="./Details" asp-route-id="@item.ID">Details</a> |*@
+                <a class="btn btn-danger" asp-page="./DeleteCar" asp-route-id="@item.ID">@Models.Dictionary.delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

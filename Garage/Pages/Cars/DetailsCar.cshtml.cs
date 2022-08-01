@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Garage.Data;
-using Garage.Pages;
+using Garage.Models;
 
-namespace Garage.Pages.Customers
+namespace Garage.Pages
 {
     public class DetailsModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace Garage.Pages.Customers
             _context = context;
         }
 
-        public Models.Customer Customers { get; set; }
+        public Car Car { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,9 +28,10 @@ namespace Garage.Pages.Customers
                 return NotFound();
             }
 
-            Customers = await _context.Customers.FirstOrDefaultAsync(m => m.ID == id);
+            Car = await _context.Car
+                .Include(c => c.Customer).FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Customers == null)
+            if (Car == null)
             {
                 return NotFound();
             }

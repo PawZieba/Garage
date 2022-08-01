@@ -21,7 +21,7 @@ namespace Garage.Pages.Customers
         }
 
         [BindProperty]
-        public Models.Customers Customers { get; set; }
+        public Models.Customer Customers { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {

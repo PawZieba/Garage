@@ -10,15 +10,16 @@ using Garage.Pages;
 
 namespace Garage.Pages.Customers
 {
-    public class DetailsModel : PageModel
+    public class DeleteModel : PageModel
     {
         private readonly Garage.Data.GarageContext _context;
 
-        public DetailsModel(Garage.Data.GarageContext context)
+        public DeleteModel(Garage.Data.GarageContext context)
         {
             _context = context;
         }
 
+        [BindProperty]
         public Models.Customer Customers { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -35,6 +36,24 @@ namespace Garage.Pages.Customers
                 return NotFound();
             }
             return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Customers = await _context.Customers.FindAsync(id);
+
+            if (Customers != null)
+            {
+                _context.Customers.Remove(Customers);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToPage("./Index");
         }
     }
 }

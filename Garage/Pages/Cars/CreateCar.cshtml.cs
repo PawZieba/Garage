@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Garage.Data;
 using Garage.Models;
 
-namespace Garage.Pages.Customers
+namespace Garage.Pages
 {
     public class CreateModel : PageModel
     {
@@ -21,11 +21,12 @@ namespace Garage.Pages.Customers
 
         public IActionResult OnGet()
         {
+        ViewData["CustomerID"] = new SelectList(_context.Customers, "ID", "ID");
             return Page();
         }
 
         [BindProperty]
-        public Models.Customers Customers { get; set; }
+        public Car Car { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
@@ -35,7 +36,7 @@ namespace Garage.Pages.Customers
                 return Page();
             }
 
-            _context.Customers.Add(Customers);
+            _context.Car.Add(Car);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

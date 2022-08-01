@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Garage.Pages;
+using Garage.Models;
 
 namespace Garage.Data
 {
@@ -14,6 +15,8 @@ namespace Garage.Data
         {
         }
 
-        public DbSet<Garage.Models.Customers> Customers { get; set; }
+        public DbSet<Garage.Models.Customer> Customers { get; set; }
+
+        public DbSet<Garage.Models.Car> Car { get; set; }
     }
 }

@@ -20,6 +20,7 @@ namespace Garage.Models
         public const string delete = "Usuń";
         public const string save = "Zapisz";
         public const string edit = "Edycja";
+        public const string details = "Szczegóły";
         public const string ofcustomer = "Klienta";
         public const string ofcar = "samochodu";
         public const string car = "samochód";
