@@ -15,6 +15,6 @@ namespace Garage.Models
         public int CustomerID { get; set; }
         public Customer Customer { get; set; }
 
-        List<Repair> Repairs { get; set; }
+        public List<Repair> RepairList { get; set; }
     }
 }

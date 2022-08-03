@@ -20,6 +20,7 @@ namespace Garage.Pages
         }
 
         public Car Car { get; set; }
+        public List<Repair> RepairList { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -31,11 +32,14 @@ namespace Garage.Pages
             Car = await _context.Car
                 .Include(c => c.Customer).FirstOrDefaultAsync(m => m.ID == id);
 
+            RepairList = await _context.Repair.Where(w => w.CarID == id).ToListAsync();
+
             if (Car == null)
             {
                 return NotFound();
             }
             return Page();
+
         }
     }
 }
