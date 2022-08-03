@@ -1,0 +1,50 @@
+﻿@page
+@model Garage.Pages.Repairs.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Repair</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Repair.ID" />
+            <div class="form-group">
+                <label asp-for="Repair.RepairDate" class="control-label"></label>
+                <input asp-for="Repair.RepairDate" class="form-control" />
+                <span asp-validation-for="Repair.RepairDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Repair.MileAge" class="control-label"></label>
+                <input asp-for="Repair.MileAge" class="form-control" />
+                <span asp-validation-for="Repair.MileAge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Repair.Description" class="control-label"></label>
+                <input asp-for="Repair.Description" class="form-control" />
+                <span asp-validation-for="Repair.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Repair.CarID" class="control-label"></label>
+                <select asp-for="Repair.CarID" class="form-control" asp-items="ViewBag.CarID"></select>
+                <span asp-validation-for="Repair.CarID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

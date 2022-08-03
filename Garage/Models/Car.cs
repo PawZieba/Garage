@@ -14,5 +14,7 @@ namespace Garage.Models
         public string LicencePlate { get; set; }
         public int CustomerID { get; set; }
         public Customer Customer { get; set; }
+
+        List<Repair> Repairs { get; set; }
     }
 }

@@ -15,8 +15,10 @@ namespace Garage.Data
         {
         }
 
-        public DbSet<Garage.Models.Customer> Customers { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
-        public DbSet<Garage.Models.Car> Car { get; set; }
+        public DbSet<Car> Car { get; set; }
+
+        public DbSet<Repair> Repair { get; set; }
     }
 }
