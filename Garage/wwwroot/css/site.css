@@ -1,6 +1,8 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+@import url('https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css');
+
 a.navbar-brand {
     white-space: normal;
     text-align: center;
@@ -42,8 +44,8 @@ a {
     .action-column a {
         padding: .175rem .75rem;
         font-size: 0.8rem;
-        margin-left: 8%;
-        margin-right: 8%;
+        margin-left: 5%;
+        margin-right: 5%;
     }
 /*.action-column a:nth-child(2) {
         margin-left: 8%;
@@ -52,6 +54,7 @@ a {
 
 .fold-content table {
     border: 1px solid;
+    width: 100%;
 }
 
     .fold-content table td,
@@ -86,14 +89,14 @@ table.fold-table > tbody > tr.view th {
         }
 
 table.fold-table > tbody > tr.view.open {
-    background: tomato;
+    background: darkred;
     color: white;
 }
 
     table.fold-table > tbody > tr.view.open td:first-child::before,
     table.fold-table > tbody > tr.view.open th:first-child::before {
         transform: rotate(0deg);
-        color: #333;
+        color: white;
     }
 
 table.fold-table > thead > tr.fold,
@@ -104,7 +107,7 @@ table.fold-table > tbody > tr.fold {
     table.fold-table > thead > tr.fold.open,
     table.fold-table > tbody > tr.fold.open {
         display: table-row;
-        background: tomato;
+        background: antiquewhite;
     }
 
 .fold-content {
