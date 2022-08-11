@@ -115,121 +115,128 @@
     </tbody>
 </table>-->
 
-<div class="add-button">
-    <a class="button-style" asp-page="Create">@Models.Dictionary.addCustomer</a>
+<!--<div class="add-button">
+    <a class="button-style" asp-page="Create">@Models.Dictionary.addCustomer</a>-->
     @*<form>
         <input type="text" asp-for="SearchString" placeholder="Wpisz imię lub nazwisko" />
         <input class="button-style" type="submit" value="Szukaj" />
     </form>*@
-    <a class="button-style" asp-page="/Cars/Create">@Models.Dictionary.addCar</a>
-</div>
+    <!--<a class="button-style" asp-page="/Cars/Create">@Models.Dictionary.addCar</a>
+</div>-->
 
 <div class="main-table">
-    <h1 class="header">@ViewBag.Title</h1>
+    <div class="header">
+        <h1>@ViewData["Title"]</h1>
 
-    <table class="table table-striped table-hover table-bordered fold-table">
-        <thead>
-            <tr>
-                <th>
-                    @Models.Dictionary.firstname
-                </th>
-                <th>
-                    @Models.Dictionary.lastname
-                </th>
-                <th>
-                    @Models.Dictionary.phone
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var customer in Model.Customers)
-            {
-                <tr class="view">
-                    <td>
-                        @Html.DisplayFor(modelcustomer => customer.FirstName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelcustomer => customer.LastName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelcustomer => customer.Phone)
-                    </td>
-                    <td class="buttons text-center action-column">
-                        <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@customer.ID">@Models.Dictionary.edit</a>
-                        @*<a class="button-style" asp-page="./Details" asp-route-id="@customer.ID">Szczegóły</a>*@
-                        <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@customer.ID">@Models.Dictionary.delete</a>
-                    </td>
+        <div>
+            <a class="btn btn-primary" asp-page="CreateCustomer">@Models.Dictionary.addCustomer</a>
+            <a class="btn btn-primary" asp-page="/Cars/Create">@Models.Dictionary.addCar</a>
+        </div>
+    </div>
+
+        <table class="table table-striped table-hover table-bordered fold-table">
+            <thead>
+                <tr>
+                    <th>
+                        @Models.Dictionary.firstname
+                    </th>
+                    <th>
+                        @Models.Dictionary.lastname
+                    </th>
+                    <th>
+                        @Models.Dictionary.phone
+                    </th>
+                    <th></th>
                 </tr>
-                <tr class="fold">
-                    <td colspan="5">
-                        <div class="fold-content">
-                            @if (customer.Cars.Count > 0)
-                            {
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th colspan="5">
-                                                @Models.Dictionary.cars
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th>
-                                                @Models.Dictionary.producer
-                                            </th>
-                                            <th>
-                                                @Models.Dictionary.model
-                                            </th>
-                                            <th>
-                                                @Models.Dictionary.vin
-                                            </th>
-                                            <th>
-                                                @Models.Dictionary.licencePlate
-                                            </th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var car in customer.Cars)
-                                        {
+            </thead>
+            <tbody>
+                @foreach (var customer in Model.Customers)
+                {
+                    <tr class="view">
+                        <td>
+                            @Html.DisplayFor(modelcustomer => customer.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelcustomer => customer.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelcustomer => customer.Phone)
+                        </td>
+                        <td class="buttons text-center action-column">
+                            <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@customer.ID">@Models.Dictionary.edit</a>
+                            @*<a class="button-style" asp-page="./Details" asp-route-id="@customer.ID">Szczegóły</a>*@
+                            <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@customer.ID">@Models.Dictionary.delete</a>
+                        </td>
+                    </tr>
+                    <tr class="fold">
+                        <td colspan="5">
+                            <div class="fold-content">
+                                @if (customer.Cars.Count > 0)
+                                {
+                                    <table>
+                                        <thead>
                                             <tr>
-                                                <td>
-                                                    @Html.DisplayFor(modelcustomer => car.Producer)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelcustomer => car.Model)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelcustomer => car.VIN)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelcustomer => car.LicencePlate)
-                                                </td>
-                                                <td class="buttons text-center action-column">
-                                                    <a class="btn btn-primary" asp-page="/Cars/Edit" asp-route-id="@car.ID">@Models.Dictionary.edit</a>
-                                                    <a class="btn btn-primary" asp-page="/Cars/Details" asp-route-id="@car.ID">@Models.Dictionary.details</a>
-                                                    <a class="btn btn-danger" asp-page="/Cars/Delete" asp-route-id="@car.ID">@Models.Dictionary.delete</a>
+                                                <th colspan="5">
+                                                    @Models.Dictionary.cars
+                                                </th>
                                             </tr>
-                                        }
-                                    </tbody>
-                                </table>
-                            }
-                            else
-                            {
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th colspan="5">
-                                                @Models.Dictionary.lackOfAssignedCars
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            }
-                        </div>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
+                                            <tr>
+                                                <th>
+                                                    @Models.Dictionary.producer
+                                                </th>
+                                                <th>
+                                                    @Models.Dictionary.model
+                                                </th>
+                                                <th>
+                                                    @Models.Dictionary.vin
+                                                </th>
+                                                <th>
+                                                    @Models.Dictionary.licencePlate
+                                                </th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var car in customer.Cars)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelcustomer => car.Producer)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelcustomer => car.Model)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelcustomer => car.VIN)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelcustomer => car.LicencePlate)
+                                                    </td>
+                                                    <td class="buttons text-center action-column">
+                                                        <a class="btn btn-primary" asp-page="/Cars/Edit" asp-route-id="@car.ID">@Models.Dictionary.edit</a>
+                                                        <a class="btn btn-primary" asp-page="/Cars/Details" asp-route-id="@car.ID">@Models.Dictionary.details</a>
+                                                        <a class="btn btn-danger" asp-page="/Cars/Delete" asp-route-id="@car.ID">@Models.Dictionary.delete</a>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                }
+                                else
+                                {
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th colspan="5">
+                                                    @Models.Dictionary.lackOfAssignedCars
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

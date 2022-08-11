@@ -108,6 +108,9 @@ table.fold-table > tbody > tr.fold {
     table.fold-table > tbody > tr.fold.open {
         display: table-row;
         background: antiquewhite;
+        border-left: solid 2px black;
+        border-bottom: solid 2px black;
+        border-right: solid 2px black;
     }
 
 .fold-content {
