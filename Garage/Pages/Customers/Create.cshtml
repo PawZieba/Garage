@@ -2,41 +2,40 @@
 @model Garage.Pages.Customers.CreateModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "";
 }
 
-<h1>Create</h1>
+<h1>@Models.Dictionary.create @Models.Dictionary.ofcustomer</h1>
 
-<h4>Customers</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Customers.FirstName" class="control-label"></label>
+                @Models.Dictionary.firstname
                 <input asp-for="Customers.FirstName" class="form-control" />
                 <span asp-validation-for="Customers.FirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Customers.LastName" class="control-label"></label>
+                @Models.Dictionary.lastname
                 <input asp-for="Customers.LastName" class="form-control" />
                 <span asp-validation-for="Customers.LastName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Customers.Phone" class="control-label"></label>
+                @Models.Dictionary.phone
                 <input asp-for="Customers.Phone" class="form-control" />
                 <span asp-validation-for="Customers.Phone" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+            <div class="d-flex align-items-center">
+                <div class="form-group mr-3 mb-0">
+                    <input type="submit" value=@Models.Dictionary.create class="btn btn-primary" />
+                </div>
+                <a asp-page="Index">@Models.Dictionary.back</a>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-page="Index">@Models.Dictionary.back</a>
 </div>
 
 @section Scripts {

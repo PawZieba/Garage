@@ -5,27 +5,28 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>@Models.Dictionary.delete</h1>
+<h1>
+    @Models.Dictionary.delete @Models.Dictionary.ofcustomer
+</h1>
 
 <h3>@Models.Dictionary.deleteConfirmation</h3>
 <div>
-    <h4>Customers</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Customers.FirstName)
+            @Models.Dictionary.firstname
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Customers.FirstName)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Customers.LastName)
+            @Models.Dictionary.lastname
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Customers.LastName)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Customers.Phone)
+            @Models.Dictionary.phone
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Customers.Phone)
@@ -34,7 +35,7 @@
     
     <form method="post">
         <input type="hidden" asp-for="Customers.ID" />
-        <input type="submit" value=@Models.Dictionary.delete class="btn btn-danger" /> |
+        <input type="submit" value=@Models.Dictionary.delete class="btn btn-danger mr-3" />
         <a asp-page="./Index">@Models.Dictionary.back</a>
     </form>
 </div>

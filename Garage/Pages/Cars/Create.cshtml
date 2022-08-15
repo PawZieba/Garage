@@ -2,7 +2,7 @@
 @model Garage.Pages.CreateModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = @Models.Dictionary.create;
 }
 
 <h1>Create</h1>
@@ -38,7 +38,7 @@
                 <select asp-for="Car.CustomerID" class ="form-control" asp-items="ViewBag.CustomerID"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value=@Models.Dictionary.create class="btn btn-primary" />
             </div>
         </form>
     </div>
