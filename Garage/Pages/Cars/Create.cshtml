@@ -5,48 +5,47 @@
     ViewData["Title"] = @Models.Dictionary.create;
 }
 
-<h1>Create</h1>
+<h1>@Models.Dictionary.create @Models.Dictionary.ofcar</h1>
 
-<h4>Car</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Car.Producer" class="control-label"></label>
+                @Models.Dictionary.producer
                 <input asp-for="Car.Producer" class="form-control" />
                 <span asp-validation-for="Car.Producer" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Car.Model" class="control-label"></label>
+                @Models.Dictionary.model
                 <input asp-for="Car.Model" class="form-control" />
                 <span asp-validation-for="Car.Model" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Car.VIN" class="control-label"></label>
+                @Models.Dictionary.vin
                 <input asp-for="Car.VIN" class="form-control" />
                 <span asp-validation-for="Car.VIN" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Car.LicencePlate" class="control-label"></label>
+                @Models.Dictionary.licencePlate
                 <input asp-for="Car.LicencePlate" class="form-control" />
                 <span asp-validation-for="Car.LicencePlate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Car.CustomerID" class="control-label"></label>
-                <select asp-for="Car.CustomerID" class ="form-control" asp-items="ViewBag.CustomerID"></select>
+                @Models.Dictionary.owner
+                <select asp-for="Car.CustomerID" class="form-control" asp-items="ViewBag.CustomerID"></select>
             </div>
-            <div class="form-group">
-                <input type="submit" value=@Models.Dictionary.create class="btn btn-primary" />
+            <div class="d-flex align-items-center">
+                <div class="form-group mr-3 mb-0">
+                    <input type="submit" value=@Models.Dictionary.create class="btn btn-primary" />
+                </div>
+                <a asp-page="Index">@Models.Dictionary.back</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-page="Index">@Models.Dictionary.back</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
