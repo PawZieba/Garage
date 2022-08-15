@@ -7,7 +7,7 @@
 
 <h1>@Models.Dictionary.delete</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>@Models.Dictionary.deleteConfirmation</h3>
 <div>
     <h4>Repair</h4>
     <hr />
@@ -40,7 +40,7 @@
     
     <form method="post">
         <input type="hidden" asp-for="Repair.ID" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <input type="submit" value=@Models.Dictionary.delete class="btn btn-danger" /> |
         <a asp-page="./Index">@Models.Dictionary.back</a>
     </form>
 </div>

@@ -29,17 +29,18 @@ namespace Garage.Pages.Repairs
         public Repair Repair { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int id)
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
+            Repair.CarID = id;
             _context.Repair.Add(Repair);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage($"../Cars/Details", new { id = id });
         }
     }
 }

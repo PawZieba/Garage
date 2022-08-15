@@ -54,7 +54,8 @@ namespace Garage.Pages.Repairs
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            //return RedirectToPage("./Index");
+            return RedirectToPage($"../Cars/Details", new {id = Repair.CarID});
         }
     }
 }

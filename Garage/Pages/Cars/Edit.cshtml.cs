@@ -37,7 +37,8 @@ namespace Garage.Pages
             {
                 return NotFound();
             }
-           ViewData["CustomerID"] = new SelectList(_context.Customers, "ID", "ID");
+            var fullNameList = _context.Customers.Select(s => new { s.ID, Fullname = s.FirstName + " " + s.LastName });
+            ViewData["CustomerID"] = new SelectList(fullNameList, "ID", "Fullname");
             return Page();
         }
 

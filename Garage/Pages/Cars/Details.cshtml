@@ -8,7 +8,6 @@
 <h1>@Models.Dictionary.details @Html.DisplayFor(model => model.Car.Producer) @Html.DisplayFor(model => model.Car.Model)</h1>
 
 <div>
-    <h4>Car</h4>
     <hr />
     <dl class="row">
         @*<dt class="col-sm-2">
@@ -30,13 +29,13 @@
             @Html.DisplayFor(model => model.Car.VIN)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Car.LicencePlate)
+            @Models.Dictionary.licencePlate
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Car.LicencePlate)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Car.Customer)
+            @Models.Dictionary.owner
         </dt>
         <dd class="col-sm-10">
             @{
@@ -54,19 +53,23 @@
     <hr />
 </div>
 <div>
-    <h1 class="mb-1">Lista napraw</h1>
+    <div class="header">
+        <h1 class="mb-1">Lista napraw</h1>    
+        <a class="btn btn-primary" asp-page="../Repairs/Create" asp-route-id="@Model.Car.ID">@Models.Dictionary.addRepair</a>
+    </div>
     <table class="table table-striped table-hover table-bordered">
         <thead>
             <tr>
                 <th>
-                    Data naprawy
+                    @Models.Dictionary.repairDate
                 </th>
                 <th>
-                    Przebieg
+                    @Models.Dictionary.mileAge
                 </th>
                 <th>
-                    Opis
+                    @Models.Dictionary.description
                 </th>
+                <th></th>
             </tr>
         </thead>
         @foreach (var item in Model.RepairList)
@@ -80,6 +83,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td class="text-center">
+                    <a class="btn btn-danger" asp-page="../Repairs/Delete" asp-route-id="@item.ID">@Models.Dictionary.delete</a>
                 </td>
             </tr>
         }
