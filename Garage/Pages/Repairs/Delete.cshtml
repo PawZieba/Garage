@@ -34,7 +34,7 @@
         </dt>
         <dd class="col-sm-10">
             @{
-                var fullName = Model.Repair.Car.Customer.FirstName + " " + Model.Repair.Car.Customer.LastName;
+                var fullName = $"{Model.Repair.Car.Customer.FirstName} {Model.Repair.Car.Customer.LastName}";
                 @Html.DisplayFor(model => fullName)
             }
         </dd>

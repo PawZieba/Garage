@@ -26,6 +26,22 @@ namespace Garage.Pages.Customers
             Customers = await _context.Customers
                 .Include(customer => customer.Cars)
                 .ToListAsync();
+
+            //Searching
+            var searchString = from c in _context.Customers
+                               select c;
+
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                searchString = searchString.Where(s => s.FirstName.Contains(SearchString) || s.LastName.Contains(SearchString));
+            }
+
+            Customers = await searchString.ToListAsync();
+            //End searching
         }
+
+        //Add searching
+        [BindProperty(SupportsGet = true)]
+        public string SearchString { get; set; }
     }
 }

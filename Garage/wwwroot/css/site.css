@@ -47,10 +47,6 @@ a {
         margin-left: 5%;
         margin-right: 5%;
     }
-/*.action-column a:nth-child(2) {
-        margin-left: 8%;
-        margin-right: 8%;
-    }*/
 
 .fold-content table {
     border: 1px solid;
@@ -115,6 +111,34 @@ table.fold-table > tbody > tr.fold {
 
 .fold-content {
     padding: .5em;
+}
+
+/* Search*/
+
+form.input-group{
+    justify-content: center;
+}
+
+form .form-control:focus {
+    border-color: #ced4da;
+    box-shadow: none;
+}
+.search-box {
+    width: 50%;
+}
+
+.search-input {
+    /*   padding: 0.4rem !important;
+    border-bottom: 2px solid gainsboro;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+*/
+    border-radius: 5px 0 0 5px;
+}
+
+.search-button {
+    border-radius: 0 5px 5px 0;
 }
 
 /* Provide sufficient contrast against white background */
