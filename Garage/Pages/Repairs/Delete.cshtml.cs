@@ -30,7 +30,9 @@ namespace Garage.Pages.Repairs
             }
 
             Repair = await _context.Repair
-                .Include(r => r.Car).FirstOrDefaultAsync(m => m.ID == id);
+                .Include(r => r.Car)
+                    .ThenInclude(car => car.Customer)
+                .FirstOrDefaultAsync(m => m.ID == id);
 
             if (Repair == null)
             {
@@ -55,7 +57,7 @@ namespace Garage.Pages.Repairs
             }
 
             //return RedirectToPage("./Index");
-            return RedirectToPage($"../Cars/Details", new {id = Repair.CarID});
+            return RedirectToPage($"../Cars/Details", new { id = Repair.CarID });
         }
     }
 }

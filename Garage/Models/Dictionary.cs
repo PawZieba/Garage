@@ -19,21 +19,25 @@ namespace Garage.Models
         public const string licencePlate = "Numer rejestracyjny";
         public const string owner = "Właściciel";
 
+        public const string repairDate = "Data naprawy";
+        public const string mileAge = "Przebieg";
+        public const string description = "Opis";
+
         public const string create = "Utwórz";
         public const string back = "Powrót";
         public const string delete = "Usuń";
         public const string save = "Zapisz";
         public const string edit = "Edycja";
         public const string details = "Szczegóły";
-        public const string ofcustomer = "Klienta";
-        public const string ofcar = "samochodu";
-        public const string car = "samochód";
+
         public const string addCustomer = "Dodaj Klienta";
         public const string addCar = "Dodaj samochód";
         public const string addRepair = "Dodaj naprawę";
-        public const string repairDate = "Data naprawy";
-        public const string mileAge = "Przebieg";
-        public const string description = "Opis";
+
+        public const string ofcustomer = "Klienta";
+        public const string ofcar = "samochodu";
+        public const string ofrepair = "naprawę";
+        public const string car = "samochód";
         public const string deleteConfirmation = "Czy na pewno usunąć ten wpis?";
     }
 }
