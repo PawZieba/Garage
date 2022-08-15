@@ -5,32 +5,31 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>@Models.Dictionary.details</h1>
+<h1>@Models.Dictionary.details </h1>
 
 <div>
-    <h4>Repair</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Repair.RepairDate)
+            @Models.Dictionary.repairDate
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Repair.RepairDate)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Repair.MileAge)
+            @Models.Dictionary.mileAge
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Repair.MileAge)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Repair.Description)
+            @Models.Dictionary.description
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Repair.Description)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Repair.Car)
+            @Models.Dictionary.car
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Repair.Car.ID)
@@ -38,6 +37,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Repair.ID">@Models.Dictionary.edit</a> |
+    <a asp-page="./Edit" asp-route-id="@Model.Repair.ID" class="mr-3">@Models.Dictionary.edit</a>
     <a asp-page="./Index">@Models.Dictionary.back</a>
 </div>

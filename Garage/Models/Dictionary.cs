@@ -22,6 +22,7 @@ namespace Garage.Models
         public const string repairDate = "Data naprawy";
         public const string mileAge = "Przebieg";
         public const string description = "Opis";
+        public const string repairs = "Naprawy";
 
         public const string create = "Utwórz";
         public const string back = "Powrót";

@@ -7,7 +7,6 @@
 
 <h1>@Models.Dictionary.edit</h1>
 
-<h4>Repair</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -15,35 +14,35 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Repair.ID" />
             <div class="form-group">
-                <label asp-for="Repair.RepairDate" class="control-label"></label>
+                @Models.Dictionary.repairDate
                 <input asp-for="Repair.RepairDate" class="form-control" />
                 <span asp-validation-for="Repair.RepairDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Repair.MileAge" class="control-label"></label>
+                @Models.Dictionary.mileAge
                 <input asp-for="Repair.MileAge" class="form-control" />
                 <span asp-validation-for="Repair.MileAge" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Repair.Description" class="control-label"></label>
+                @Models.Dictionary.description
                 <input asp-for="Repair.Description" class="form-control" />
                 <span asp-validation-for="Repair.Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Repair.CarID" class="control-label"></label>
+                @Models.Dictionary.car
                 <select asp-for="Repair.CarID" class="form-control" asp-items="ViewBag.CarID"></select>
                 <span asp-validation-for="Repair.CarID" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="d-flex align-items-center">
+                <div class="form-group mr-3 mb-0">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+                <a asp-page="../Cars/Details", new {id = Repair.ID}>@Models.Dictionary.back</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-page="./Index">@Models.Dictionary.back</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

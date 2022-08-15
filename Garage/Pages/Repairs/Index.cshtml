@@ -5,25 +5,27 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>
+    @Models.Dictionary.repairs
+</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">@Models.Dictionary.create</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Repair[0].RepairDate)
+                @Models.Dictionary.repairDate
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Repair[0].MileAge)
+                @Models.Dictionary.mileAge
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Repair[0].Description)
+                @Models.Dictionary.description
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Repair[0].Car)
+                @Models.Dictionary.car
             </th>
             <th></th>
         </tr>
